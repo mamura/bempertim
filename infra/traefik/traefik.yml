@@ -1,0 +1,24 @@
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    network: devstack-network
+    defaultRule: Host(`{{ trimPrefix `/` .ContainerName }}.localhost`)
+
+entryPoints:
+  web:
+    address: ":80"
+
+  websecure:
+    address: ":443"
+
+tls:
+  certificates:
+    - certFile: /etc/ssl/certs/selfsigned.crt
+      keyFile: /etc/ssl/private/selfsigned.key
+  options:
+    default:
+      sniStrict: false
+
+api:
+  insecure: true
