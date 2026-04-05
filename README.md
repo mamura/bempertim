@@ -82,3 +82,48 @@ Uma plataforma simples onde o usuário pode:
 ├── infra/      # Infraestrutura Docker
 ├── Makefile
 └── README.md
+```
+
+# Como rodar o projeto
+Pré-requisitos:
+- Docker
+- Docker Compose
+- make up
+
+Depois acesse:
+
+http://bempertim.localhost
+
+# Metodologia
+
+O projeto segue uma abordagem:
+- Aplicada (resolução de problema real)
+- Incremental (MVP evolutivo)
+- Baseada em feedback de usuários reais
+
+# Métricas de avaliação
+- Número de comércios cadastrados
+- Feedback dos usuários
+- Facilidade de uso
+- Percepção de aumento de visibilidade
+
+# Roadmap
+- Listagem de comércios próximos
+- Geolocalização do usuário
+- Cadastro de comércios
+- Integração com backend
+- Avaliações de usuários
+- Integração com mapas
+
+# Contribuição
+Este projeto está em fase inicial (MVP). Sugestões e melhorias são bem-vindas.
+
+# Autor
+
+Marcio José Mota Pinto
+
+Projeto acadêmico + aplicação prática real
+Foco em impacto social com tecnologia
+
+# Licença
+MIT

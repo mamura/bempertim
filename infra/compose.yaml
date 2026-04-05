@@ -24,7 +24,7 @@ services:
       - ../app:/var/www/app
     labels:
       - traefik.enable=true
-      - traefik.http.routers.app.rule=Host(`app.${STACK_DOMAIN}`)
+      - traefik.http.routers.app.rule=Host(`app.${STACK_NAME}.${STACK_DOMAIN}`)
       - traefik.http.routers.app.entrypoints=web
       - traefik.http.services.app.loadbalancer.server.port=${APP_PORT}
     networks:
@@ -39,7 +39,7 @@ services:
       - ../api:/var/www/api
     labels:
       - traefik.enable=true
-      - traefik.http.routers.api.rule=Host(`api.${STACK_DOMAIN}`)
+      - traefik.http.routers.api.rule=Host(`api.${STACK_NAME}.${STACK_DOMAIN}`)
       - traefik.http.routers.api.entrypoints=web
       - traefik.http.services.api.loadbalancer.server.port=${API_PORT}
     depends_on:
