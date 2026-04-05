@@ -1,0 +1,88 @@
+:root {
+  /* Brand */
+  --bp-color-primary: #93d800;
+  --bp-color-gradient-dark: #00444f;
+  --bp-color-gradient-light: #00bcd9;
+
+  /* Neutral */
+  --bp-color-white: #ffffff;
+  --bp-color-black: #000000;
+
+  --bp-color-text: #16313a;
+  --bp-color-text-soft: rgba(255, 255, 255, 0.82);
+  --bp-color-text-muted: #5f7380;
+
+  --bp-color-surface: #ffffff;
+  --bp-color-surface-soft: #f5f8f9;
+  --bp-color-surface-muted: #eef3f5;
+
+  --bp-color-border: rgba(0, 68, 79, 0.12);
+  --bp-color-border-strong: rgba(0, 68, 79, 0.22);
+
+  --bp-color-success: #16a34a;
+  --bp-color-warning: #f59e0b;
+  --bp-color-danger: #dc2626;
+
+  /* Typography */
+  --bp-font-family-base: "Nunito", sans-serif;
+
+  --bp-font-size-xs: 0.75rem;
+  --bp-font-size-sm: 0.875rem;
+  --bp-font-size-md: 1rem;
+  --bp-font-size-lg: 1.125rem;
+  --bp-font-size-xl: 1.25rem;
+  --bp-font-size-2xl: 1.5rem;
+  --bp-font-size-3xl: 2rem;
+  --bp-font-size-4xl: 2.75rem;
+
+  --bp-font-weight-regular: 400;
+  --bp-font-weight-semibold: 600;
+  --bp-font-weight-bold: 700;
+  --bp-font-weight-extrabold: 800;
+
+  --bp-line-height-tight: 1.1;
+  --bp-line-height-base: 1.5;
+  --bp-line-height-relaxed: 1.7;
+
+  /* Spacing */
+  --bp-space-1: 0.25rem;
+  --bp-space-2: 0.5rem;
+  --bp-space-3: 0.75rem;
+  --bp-space-4: 1rem;
+  --bp-space-5: 1.25rem;
+  --bp-space-6: 1.5rem;
+  --bp-space-8: 2rem;
+  --bp-space-10: 2.5rem;
+  --bp-space-12: 3rem;
+  --bp-space-16: 4rem;
+  --bp-space-20: 5rem;
+
+  /* Radius */
+  --bp-radius-sm: 0.5rem;
+  --bp-radius-md: 0.75rem;
+  --bp-radius-lg: 1rem;
+  --bp-radius-xl: 1.5rem;
+  --bp-radius-pill: 9999px;
+
+  /* Shadow */
+  --bp-shadow-sm: 0 4px 10px rgba(0, 68, 79, 0.08);
+  --bp-shadow-md: 0 10px 25px rgba(0, 68, 79, 0.12);
+  --bp-shadow-lg: 0 18px 40px rgba(0, 68, 79, 0.16);
+
+  /* Layout */
+  --bp-container-width: 1200px;
+
+  /* Gradients */
+  --bp-gradient-main: linear-gradient(
+    135deg,
+    var(--bp-color-gradient-dark) 0%,
+    var(--bp-color-gradient-light) 100%
+  );
+
+  /* Hero page */
+  --bp-hero-top-offset: clamp(32px, 7.317vh, 60px);
+  --bp-hero-bottom-offset: clamp(32px, 7.317vh, 60px);
+
+  --bp-hero-copy-max-width: 760px;
+  --bp-hero-actions-gap: 1rem;
+}

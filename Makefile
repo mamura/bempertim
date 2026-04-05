@@ -39,7 +39,7 @@ bootstrap:
 	@./infra/scripts/bootstrap.sh
 
 up:
-	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) up -d
+	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) up -d --build
 
 down:
 	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) down

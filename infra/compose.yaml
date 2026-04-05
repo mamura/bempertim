@@ -16,10 +16,11 @@ services:
       - default
 
   app:
-    image: ${APP_IMAGE}
+    build:
+      context: ..
+      dockerfile: infra/docker/app/Dockerfile
     container_name: ${STACK_NAME}-app
     working_dir: /var/www/app
-    command: sh -c "sleep infinity"
     volumes:
       - ../app:/var/www/app
     labels:
@@ -27,6 +28,8 @@ services:
       - traefik.http.routers.app.rule=Host(`app.${STACK_NAME}.${STACK_DOMAIN}`)
       - traefik.http.routers.app.entrypoints=web
       - traefik.http.services.app.loadbalancer.server.port=${APP_PORT}
+    ports:
+      - "3000:3000"
     networks:
       - default
 
