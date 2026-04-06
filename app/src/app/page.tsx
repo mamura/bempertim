@@ -13,30 +13,42 @@ export default function HomePage() {
   const [locationError, setLocationError] = useState("");
 
   async function handleUseLocation() {
-  console.log("clicou no botão de localização");
-  setIsLoadingLocation(true);
-  setLocationError("");
+    console.log("clicou no botão de localização");
+    setIsLoadingLocation(true);
+    setLocationError("");
 
-  try {
-    const position = await getCurrentPosition();
+    try {
+      const position = await getCurrentPosition();
 
-    saveUserLocation({
-      type: "geolocation",
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-    });
+      console.log("position.coords.latitude", position.coords.latitude);
+      console.log("position.coords.longitude", position.coords.longitude);
 
-    router.push("/mapa");
-  } catch (error) {
-    console.error(error);
+      const payload = {
+        type: "geolocation" as const,
+        latitude: Number(position.coords.latitude),
+        longitude: Number(position.coords.longitude),
+      };
 
-    setLocationError(
-      "Não foi possível acessar sua localização. Você pode escolher sua cidade e bairro manualmente."
-    );
-  } finally {
-    setIsLoadingLocation(false);
+      console.log("payload salvo", payload);
+
+      saveUserLocation(payload);
+
+      console.log(
+        "localStorage salvo",
+        localStorage.getItem("bp:user_location")
+      );
+
+      router.push("/mapa");
+    } catch (error) {
+      console.error(error);
+
+      setLocationError(
+        "Não foi possível acessar sua localização. Você pode escolher sua cidade e bairro manualmente."
+      );
+    } finally {
+      setIsLoadingLocation(false);
+    }
   }
-}
 
   function handleManualLocation() {
     router.push("/localizacao");

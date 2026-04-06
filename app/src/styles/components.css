@@ -471,3 +471,52 @@
     width: 100%;
   }
 }
+
+.bp-user-location-marker-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.bp-user-location-marker {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.bp-user-location-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(44, 166, 163, 0.25);
+  animation: bp-user-location-pulse 1.8s ease-out infinite;
+}
+
+.bp-user-location-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #2ca6a3;
+  border: 2px solid #ffffff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 2px rgba(44, 166, 163, 0.15);
+}
+
+@keyframes bp-user-location-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+
+  70% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
