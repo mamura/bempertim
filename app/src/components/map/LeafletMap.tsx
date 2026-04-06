@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import L from "leaflet";
 import {
-  CircleMarker,
   MapContainer,
   Marker,
   Popup,
@@ -68,6 +67,22 @@ export default function LeafletMap({
   userPosition,
   recenterKey = 0,
 }: Props) {
+  const userLocationIcon = useMemo(() => {
+    return L.divIcon({
+      className: "bp-user-pin-wrapper",
+      html: `
+        <div class="bp-user-pin">
+          <span class="bp-user-pin-pulse bp-user-pin-pulse--one"></span>
+          <span class="bp-user-pin-pulse bp-user-pin-pulse--two"></span>
+          <span class="bp-user-pin-core"></span>
+        </div>
+      `,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+      popupAnchor: [0, -14],
+    });
+  }, []);
+
   if (!isValidLatLng(center)) {
     return <div className="bp-map-loading">Center inválido</div>;
   }
@@ -87,20 +102,11 @@ export default function LeafletMap({
       <MapRecenter target={userPosition ?? null} recenterKey={recenterKey} />
 
       {isValidLatLng(userPosition) ? (
-        <CircleMarker
-          center={userPosition}
-          radius={8}
-          pathOptions={{
-            color: "#ffffff",
-            weight: 3,
-            fillColor: "#2ca6a3",
-            fillOpacity: 1,
-          }}
-        >
+        <Marker position={userPosition} icon={userLocationIcon}>
           <Popup>
             <strong>Você está aqui</strong>
           </Popup>
-        </CircleMarker>
+        </Marker>
       ) : null}
 
       {businesses

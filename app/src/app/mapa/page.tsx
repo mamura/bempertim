@@ -4,7 +4,17 @@ import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import { getUserLocation, type UserLocation } from "@/lib/location-storage";
 import { sobralBusinesses } from "@/lib/map-businesses";
-import { Home, Search, Bell, Settings, Utensils } from "lucide-react";
+import {
+  Home,
+  Search,
+  Bell,
+  Settings,
+  Utensils,
+  ShoppingCart,
+  Pill,
+  Dumbbell,
+  Dog,
+} from "lucide-react";
 
 const LeafletMap = dynamic(() => import("@/components/map/LeafletMap"), {
   ssr: false,
@@ -137,25 +147,59 @@ export default function MapaPage() {
         <div className="bp-map-desktop">
           <aside className="bp-map-sidebar">
             <div className="bp-map-sidebar-content">
-              <img
-                src="/bem-pertim-icon.svg"
-                alt="Bem Pertim"
-                className="bp-map-logo"
-              />
-
-              <p className="bp-map-sidebar-title">Filtre por categoria</p>
+              <button
+                type="button"
+                className="bp-map-logo-button"
+                onClick={handleGoHome}
+                aria-label="Voltar para minha localização"
+              >
+                <img
+                  src="/bem-pertim-icon.svg"
+                  alt="Bem Pertim"
+                  className="bp-map-logo"
+                />
+              </button>
 
               <div className="bp-map-search">
                 <input type="text" placeholder="Busca" />
+                <button type="button" aria-label="Buscar">
+                  <Search size={18} />
+                </button>
               </div>
 
-              <div className="bp-map-categories">
-                <button type="button" className="is-active">
-                  🍴 Restaurantes
+              <div className="bp-map-sidebar-nav bp-map-categories">
+                <button
+                  type="button"
+                  className="bp-map-sidebar-nav-button"
+                  onClick={handleGoHome}
+                >
+                  <Home size={18} />
+                  <span>Home</span>
                 </button>
-                <button type="button">Mercados</button>
-                <button type="button">Farmácias</button>
-                <button type="button">Academias</button>
+                <button type="button" className="bp-map-sidebar-nav-button is-active">
+                  <Utensils size={18} />
+                  <span>Restaurantes</span>
+                </button>
+
+                <button type="button" className="bp-map-sidebar-nav-button">
+                  <ShoppingCart size={18} />
+                  <span>Mercados</span>
+                </button>
+
+                <button type="button" className="bp-map-sidebar-nav-button">
+                  <Pill size={18} />
+                  <span>Farmácias</span>
+                </button>
+
+                <button type="button" className="bp-map-sidebar-nav-button">
+                  <Dumbbell size={18} />
+                  <span>Academias</span>
+                </button>
+
+                <button type="button" className="bp-map-sidebar-nav-button">
+                  <Dog size={18} />
+                  <span>Petsop</span>
+                </button>
               </div>
 
               <div className="bp-map-footer">
