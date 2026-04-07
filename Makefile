@@ -42,13 +42,13 @@ up:
 	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) up -d --build
 
 down:
-	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) down
+	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) down -v
 
 logs:
 	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) logs -f
 
 restart:
-	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) down
+	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) stop
 	@docker compose --env-file $(INFRA_ENV_FILE) -f $(COMPOSE_FILE) up -d
 
 ps:

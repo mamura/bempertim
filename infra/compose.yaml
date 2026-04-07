@@ -34,10 +34,12 @@ services:
       - default
 
   api:
-    image: ${API_IMAGE}
+    build:
+      context: ..
+      dockerfile: infra/docker/api/Dockerfile
     container_name: ${STACK_NAME}-api
     working_dir: /var/www/api
-    command: sh -c "sleep infinity"
+    command: sh -c "if [ -f artisan ]; then php artisan serve --host=0.0.0.0 --port=${API_PORT}; else sleep infinity; fi"
     volumes:
       - ../api:/var/www/api
     labels:
